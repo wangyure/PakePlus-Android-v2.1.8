@@ -13,66 +13,64 @@
     }
     body {
         background-color: #f0f2f5;
-        padding: 20px;
+        padding: 15px;
     }
     .title {
         text-align: center;
-        font-size: 28px;
+        font-size: 24px;
         color: #333;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
         font-weight: bold;
     }
     .card-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 25px;
-        max-width: 1400px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        max-width: 600px;
         margin: 0 auto;
     }
+    /* 横向卡片：左侧图片 + 右侧信息 */
     .model-card {
         background: white;
         border-radius: 12px;
         overflow: hidden;
-        box-shadow: 0 4px 12px #00000010;
-        position: relative; /* 确保图片容器定位正常 */
-        cursor: pointer; /* 提示可点击 */
+        box-shadow: 0 3px 10px #00000010;
+        display: flex;
+        align-items: center;
+        height: 160px; /* 固定卡片高度 */
     }
-    /* 9:16比例，解决图片不显示问题 */
+    /* 左侧图片区域 9:16 */
+    .img-container {
+        width: 120px;
+        height: 100%;
+        position: relative;
+        cursor: pointer;
+    }
     .model-img {
         width: 100%;
         height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
         object-fit: cover;
         display: block;
     }
-    .img-container {
-        width: 100%;
-        height: 0;
-        padding-bottom: 177.78%; /* 16/9≈1.7778，保持9:16比例 */
-        position: relative;
-        overflow: hidden;
-    }
+    /* 右侧信息区域 */
     .model-info {
-        padding: 20px;
-        position: relative;
-        z-index: 1;
+        flex: 1;
+        padding: 15px 20px;
     }
     .model-name {
-        font-size: 20px;
+        font-size: 18px;
         font-weight: bold;
         margin-bottom: 10px;
-        border-bottom: 1px solid #eee;
-        padding-bottom: 8px;
+        color: #222;
     }
     .info-item {
-        font-size: 15px;
-        margin-bottom: 6px;
-        color: #333;
+        font-size: 14px;
+        margin-bottom: 5px;
+        color: #555;
     }
     .info-item span {
         font-weight: bold;
+        color: #333;
     }
 </style>
 </head>
@@ -81,65 +79,64 @@
 <h1 class="title">模特信息档案册</h1>
 <div class="card-container">
 
-<!-- 模特1：小小粥（点击跳转详情页model1.html） -->
-<div class="model-card" onclick="window.location.href='model1.html'">
-    <div class="img-container">
-        <img src="images/模特1.jpg" class="model-img" alt="小小粥缩略图">
+<!-- 模特1：小小粥 -->
+<div class="model-card">
+    <!-- 左侧9:16图片，点击跳转 -->
+    <div class="img-container" onclick="window.location.href='model1.html'">
+        <img src="images/模特1.jpg" class="model-img" alt="小小粥">
     </div>
+    <!-- 右侧信息 -->
     <div class="model-info">
         <div class="model-name">小小粥</div>
         <div class="info-item"><span>身高：</span>166cm</div>
-        <div class="info-item"><span>体重：</span>88</div>
+        <div class="info-item"><span>体重：</span>88斤</div>
         <div class="info-item"><span>三围：</span>70/60/80</div>
-        <div class="info-item"><span>肩宽：</span>34</div>
-        <div class="info-item"><span>风格：</span>高端时尚、平面、T台</div>
+        <div class="info-item"><span>肩宽：</span>34cm</div>
     </div>
 </div>
 
-<!-- 模特2：周佳盟（点击跳转详情页model2.html） -->
-<div class="model-card" onclick="window.location.href='model2.html'">
-    <div class="img-container">
-        <img src="images/模特2.jpg" class="model-img" alt="周佳盟略图">
+<!-- 模特2：周佳盟 -->
+<div class="model-card">
+    <div class="img-container" onclick="window.location.href='model2.html'">
+        <img src="images/模特2.jpg" class="model-img" alt="周佳盟">
     </div>
     <div class="model-info">
-        <div class="model-name">苏晚</div>
+        <div class="model-name">周佳盟</div>
         <div class="info-item"><span>身高：</span>158cm</div>
-        <div class="info-item"><span>体重：</span>87</div>
+        <div class="info-item"><span>体重：</span>87斤</div>
         <div class="info-item"><span>三围：</span>80/65/76</div>
-        <div class="info-item"><span>肩宽：</span>35</div>
-        <div class="info-item"><span>风格：</span>日系清新、电商、短视频</div>
+        <div class="info-item"><span>肩宽：</span>35cm</div>
     </div>
 </div>
 
-<!-- 模特3：夏沫（点击跳转详情页model3.html） -->
-<div class="model-card" onclick="window.location.href='model3.html'">
-    <div class="img-container">
-        <img src="images/模特3.jpg" class="model-img" alt="夏沫缩略图">
+<!-- 模特3：周鑫 -->
+<div class="model-card">
+    <div class="img-container" onclick="window.location.href='model3.html'">
+        <img src="images/模特3.jpg" class="model-img" alt="周鑫">
     </div>
     <div class="model-info">
-        <div class="model-name">夏沫</div>
-        <div class="info-item"><span>身高：</span>176cm</div>
-        <div class="info-item"><span>体重：</span>51kg</div>
-        <div class="info-item"><span>三围：</span>85/61/89</div>
-        <div class="info-item"><span>风格：</span>国潮、写真、品牌代言</div>
+        <div class="model-name">周鑫</div>
+        <div class="info-item"><span>身高：</span>158cm</div>
+        <div class="info-item"><span>体重：</span>88斤</div>
+        <div class="info-item"><span>三围：</span>70/60/80</div>
+        <div class="info-item"><span>肩宽：</span>34cm</div>
     </div>
 </div>
 
-<!-- 模特4：温冉（点击跳转详情页model4.html） -->
-<div class="model-card" onclick="window.location.href='model4.html'">
-    <div class="img-container">
-        <img src="images/模特4.jpg" class="model-img" alt="温冉缩略图">
+<!-- 模特4：温冉 -->
+<div class="model-card">
+    <div class="img-container" onclick="window.location.href='model4.html'">
+        <img src="images/模特4.jpg" class="model-img" alt="温冉">
     </div>
     <div class="model-info">
         <div class="model-name">温冉</div>
         <div class="info-item"><span>身高：</span>174cm</div>
         <div class="info-item"><span>体重：</span>50kg</div>
         <div class="info-item"><span>三围：</span>83/59/87</div>
-        <div class="info-item"><span>风格：</span>商务轻奢、内衣、街拍</div>
     </div>
 </div>
 
-<!-- 在这里无限复制模特卡片，新增模特需对应新增modelX.html详情页 -->
+<!-- 直接复制上面的模块即可新增模特 -->
 
 </div>
 </body>
