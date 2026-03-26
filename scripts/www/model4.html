@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小施 - 兼职模特档案</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Microsoft YaHei", Arial, sans-serif;
+    }
+    body {
+        background-color: #f0f2f5;
+        padding: 15px;
+    }
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    .logo {
+        width: 100px;
+        height: 56px;
+        object-fit: contain;
+        background: transparent;
+        border: none;
+    }
+    .title {
+        font-size: 18px;
+        color: #333;
+        font-weight: bold;
+    }
+
+    /* 返回首页按钮 */
+    .back-btn {
+        padding: 6px 12px;
+        background: #fff;
+        border-radius: 8px;
+        font-size: 14px;
+        color: #333;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 2px 5px #00000010;
+    }
+
+    /* 图片容器：支持翻页 */
+    .img-wrapper {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        user-select: none;
+    }
+
+    /* 模特大图 */
+    .model-big-img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        border-radius: 12px;
+        object-fit: cover;
+        display: block;
+    }
+
+    /* 优化版：左右翻页图标 */
+    .page-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        background: rgba(0,0,0,0.25);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: white;
+        cursor: pointer;
+        transition: 0.2s;
+        z-index: 9;
+    }
+    .page-btn:hover {
+        background: rgba(0,0,0,0.4);
+    }
+    .prev-btn {
+        left: 12px;
+    }
+    .next-btn {
+        right: 12px;
+    }
+
+    /* 详情卡片 */
+    .detail-card {
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 3px 10px #00000010;
+        text-align: center;
+    }
+
+    .info-list {
+        text-align: left;
+        max-width: 300px;
+        margin: 0 auto;
+        font-size: 15px;
+        line-height: 1.8;
+        color: #333;
+    }
+    .info-list b {
+        color: #222;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <!-- ✅ 修复：路径去掉./ + 强制display:block，APP必显示 -->
+    <img src="LOGO.png" class="logo" alt="LOGO">
+    <h1 class="title">兼职模特信息档案册</h1>
+</div>
+
+<!-- 模特详情 -->
+<div class="detail-card">
+    <div class="img-wrapper">
+        <img src="images/模特4.jpg" class="model-big-img" id="mainImg">
+        
+        <!-- 上一张 / 下一张 图标 -->
+        <div class="page-btn prev-btn" onclick="prevPhoto()">←</div>
+        <div class="page-btn next-btn" onclick="nextPhoto()">→</div>
+    </div>
+    
+    <div class="info-list">
+        <p><b>姓名：</b>周鑫</p>
+        <p><b>身高：</b>158cm</p>
+        <p><b>体重：</b>88斤</p>
+        <p><b>三围：</b>70/60/80</p>
+        <p><b>肩宽：</b>34cm</p>
+    </div>
+</div>
+
+<!-- 同模特多图翻页 JS -->
+<script>
+    // 在这里添加【当前模特的所有照片】
+    const photos = [
+        "images/模特4.jpg",
+        "images/模特4-2.jpg",
+        "images/模特4-3.jpg",
+        "images/模特4-4.jpg",
+        "images/模特4-5.jpg"
+    ];
+    let index = 0;
+    const imgEl = document.getElementById("mainImg");
+
+    function nextPhoto() {
+        index = (index + 1) % photos.length;
+        imgEl.src = photos[index];
+    }
+    function prevPhoto() {
+        index = (index - 1 + photos.length) % photos.length;
+        imgEl.src = photos[index];
+    }
+</script>
+
+</body>
+</html>
