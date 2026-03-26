@@ -1,11 +1,162 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>PakePlus</title>
-    </head>
-    <body>
-        PakePlus
-    </body>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>兼职模特信息档案册</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Microsoft YaHei", Arial, sans-serif;
+    }
+    body {
+        background-color: #f0f2f5;
+        padding: 18px;
+    }
+    /* 顶部：左侧LOGO + 右侧标题 */
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+    /* LOGO 无灰色背景 */
+    .logo {
+        width: 100px;
+        height: 56px;
+        object-fit: contain;
+        background: transparent;
+        border: none;
+    }
+    /* 标题：右侧 + 缩小字体 */
+    .title {
+        font-size: 20px;
+        color: #333;
+        font-weight: bold;
+    }
+    .card-container {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    /* 卡片样式 */
+    .model-card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px #00000010;
+        display: flex;
+        align-items: center;
+        height: 110px;
+        padding: 8px;
+    }
+    /* 左侧缩略图：完整显示全身照片，不裁剪 ✅ */
+    .img-container {
+        width: 90px;
+        height: 90px;
+        flex-shrink: 0;
+        cursor: pointer;
+        border-radius: 6px;
+        overflow: hidden;
+        background: #f9f9f9;
+    }
+    .model-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* 关键：完整显示照片 */
+        display: block;
+    }
+    /* 右侧信息 */
+    .model-info {
+        flex: 1;
+        padding: 0 12px;
+    }
+    .model-name {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 6px;
+        color: #222;
+    }
+    .info-item {
+        font-size: 12px;
+        margin-bottom: 3px;
+        color: #555;
+    }
+    .info-item span {
+        font-weight: bold;
+        color: #333;
+    }
+</style>
+</head>
+<body>
+
+<!-- 顶部：左LOGO → 右侧标题 -->
+<div class="header">
+    <!-- ✅ 修复：class正确 + 路径兼容APP + 大小写严格匹配 -->
+    <img src="./LOGO.png" class="logo" alt="LOGO">
+    <h1 class="title">兼职模特信息档案册</h1>
+</div>
+
+<div class="card-container">
+
+<!-- 模特1：小小粥 -->
+<div class="model-card">
+    <div class="img-container" onclick="window.location.href='model1.html'">
+        <img src="images/模特1.jpg" class="model-img" alt="小小粥">
+    </div>
+    <div class="model-info">
+        <div class="model-name">小小粥</div>
+        <div class="info-item"><span>身高：</span>166cm</div>
+        <div class="info-item"><span>体重：</span>100斤</div>
+        <div class="info-item"><span>三围：</span>77/63/80</div>
+        <div class="info-item"><span>肩宽：</span>34cm</div>
+    </div>
+</div>
+
+<!-- 模特2：周佳盟 -->
+<div class="model-card">
+    <div class="img-container" onclick="window.location.href='model2.html'">
+        <img src="images/模特2.jpg" class="model-img" alt="周佳盟">
+    </div>
+    <div class="model-info">
+        <div class="model-name">周佳盟</div>
+        <div class="info-item"><span>身高：</span>158cm</div>
+        <div class="info-item"><span>体重：</span>87斤</div>
+        <div class="info-item"><span>三围：</span>80/65/76</div>
+        <div class="info-item"><span>肩宽：</span>35cm</div>
+    </div>
+</div>
+
+<!-- 模特3：周鑫 -->
+<div class="model-card">
+    <div class="img-container" onclick="window.location.href='model3.html'">
+        <img src="images/模特3.jpg" class="model-img" alt="周鑫">
+    </div>
+    <div class="model-info">
+        <div class="model-name">周鑫</div>
+        <div class="info-item"><span>身高：</span>158cm</div>
+        <div class="info-item"><span>体重：</span>88斤</div>
+        <div class="info-item"><span>三围：</span>70/60/80</div>
+        <div class="info-item"><span>肩宽：</span>34cm</div>
+    </div>
+</div>
+
+<!-- 模特4：温冉 -->
+<div class="model-card">
+    <div class="img-container" onclick="window.location.href='model4.html'">
+        <img src="images/模特4.jpg" class="model-img" alt="温冉">
+    </div>
+    <div class="model-info">
+        <div class="model-name">温冉</div>
+        <div class="info-item"><span>身高：</span>174cm</div>
+        <div class="info-item"><span>体重：</span>50kg</div>
+        <div class="info-item"><span>三围：</span>83/59/87</div>
+    </div>
+</div>
+
+</div>
+</body>
 </html>
