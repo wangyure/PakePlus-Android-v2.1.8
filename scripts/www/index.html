@@ -20,82 +20,82 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
     }
-    /* LOGO 无灰色背景 */
     .logo {
-        width: 100px;
-        height: 56px;
+        width: 160px;
+        height: 60px;
         object-fit: contain;
         background: transparent;
         border: none;
     }
-    /* 标题：右侧 + 缩小字体 */
     .title {
-        font-size: 20px;
+        font-size: 32px;
         color: #333;
         font-weight: bold;
     }
     .card-container {
         display: flex;
         flex-direction: column;
-        gap: 12px;
-        max-width: 600px;
+        gap: 16px;
+        max-width: 800px;
         margin: 0 auto;
     }
-    /* 卡片样式 */
+    /* 参考图灰色卡片样式 */
     .model-card {
-        background: white;
-        border-radius: 10px;
-        box-shadow: 0 2px 8px #00000010;
+        background: #c9c9c9;
         display: flex;
         align-items: center;
-        height: 110px;
-        padding: 8px;
+        padding: 12px;
+        border: 2px solid white;
     }
-    /* 左侧缩略图：完整显示全身照片，不裁剪 ✅ */
+    /* 左侧图片容器：四边均为5px白色描边 ✅ */
     .img-container {
-        width: 90px;
-        height: 90px;
+        width: 180px;
+        height: 280px;
         flex-shrink: 0;
         cursor: pointer;
-        border-radius: 6px;
-        overflow: hidden;
-        background: #f9f9f9;
+        /* 核心：上下左右全部5px白色边框 */
+        border-top: 5px solid white;
+        border-bottom: 5px solid white;
+        border-left: 5px solid white;
+        border-right: 5px solid white;
+        background: #f0f0f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
+    /* 照片完整显示，不裁剪、不变形 */
     .model-img {
         width: 100%;
         height: 100%;
-        object-fit: contain; /* 关键：完整显示照片 */
+        object-fit: contain;
         display: block;
     }
     /* 右侧信息 */
     .model-info {
         flex: 1;
-        padding: 0 12px;
+        padding: 0 24px;
     }
     .model-name {
-        font-size: 16px;
+        font-size: 36px;
         font-weight: bold;
-        margin-bottom: 6px;
-        color: #222;
+        margin-bottom: 16px;
+        color: #111;
     }
     .info-item {
-        font-size: 12px;
-        margin-bottom: 3px;
-        color: #555;
+        font-size: 24px;
+        margin-bottom: 8px;
+        color: #222;
     }
     .info-item span {
-        font-weight: bold;
-        color: #333;
+        font-weight: normal;
     }
 </style>
 </head>
 <body>
 
-<!-- 顶部：左LOGO → 右侧标题 -->
 <div class="header">
-    <!-- ✅ 修复：class正确 + 路径兼容APP + 大小写严格匹配 -->
     <img src="./LOGO.png" class="logo" alt="LOGO">
     <h1 class="title">兼职模特信息档案册</h1>
 </div>
@@ -144,16 +144,17 @@
     </div>
 </div>
 
-<!-- 模特4：温冉 -->
+<!-- 模特4：小施 -->
 <div class="model-card">
     <div class="img-container" onclick="window.location.href='model4.html'">
-        <img src="images/模特4.jpg" class="model-img" alt="温冉">
+        <img src="images/模特4.jpg" class="model-img" alt="小施">
     </div>
     <div class="model-info">
-        <div class="model-name">温冉</div>
-        <div class="info-item"><span>身高：</span>174cm</div>
-        <div class="info-item"><span>体重：</span>50kg</div>
-        <div class="info-item"><span>三围：</span>83/59/87</div>
+        <div class="model-name">小施</div>
+        <div class="info-item"><span>身高：</span>163cm</div>
+        <div class="info-item"><span>体重：</span>90斤</div>
+        <div class="info-item"><span>三围：</span>70/60/80</div>
+        <div class="info-item"><span>肩宽：</span>34cm</div>
     </div>
 </div>
 
