@@ -12,152 +12,167 @@
         font-family: "Microsoft YaHei", Arial, sans-serif;
     }
     body {
-        background-color: #f0f2f5;
-        padding: 18px;
+        background-color: #f4f5f7;
+        padding: 16px;
     }
-    /* 顶部：左侧LOGO + 右侧标题 */
+
+    /* 顶部区域：自适应布局 */
     .header {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
         margin-bottom: 20px;
+        gap: 12px;
     }
     .logo {
-        width: 160px;
-        height: 60px;
+        width: clamp(120px, 25vw, 180px);
+        height: auto;
         object-fit: contain;
-        background: transparent;
-        border: none;
     }
     .title {
-        font-size: 32px;
+        font-size: clamp(20px, 5vw, 32px);
         color: #333;
         font-weight: bold;
     }
+
+    /* 卡片容器：自适应宽度 */
     .card-container {
         display: flex;
         flex-direction: column;
         gap: 16px;
-        max-width: 800px;
+        max-width: 1000px;
         margin: 0 auto;
     }
-    /* 参考图灰色卡片样式 */
+
+    /* 模特卡片：参考图样式 + 自适应 */
     .model-card {
-        background: #c9c9c9;
-        display: flex;
-        align-items: center;
+        background-color: #c0c0c0;
+        border: 2px solid #ffffff;
         padding: 12px;
-        border: 2px solid white;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 20px;
     }
-    /* 左侧图片容器：四边均为5px白色描边 ✅ */
+
+    /* 图片容器：5px白色边框 + 自适应尺寸 */
     .img-container {
-        width: 180px;
-        height: 280px;
+        width: clamp(120px, 30vw, 200px);
+        height: clamp(180px, 50vw, 320px);
         flex-shrink: 0;
-        cursor: pointer;
-        /* 核心：上下左右全部5px白色边框 */
-        border-top: 5px solid white;
-        border-bottom: 5px solid white;
-        border-left: 5px solid white;
-        border-right: 5px solid white;
-        background: #f0f0f0;
+        border: 5px solid #ffffff;
+        background-color: #f0f0f0;
         display: flex;
         align-items: center;
         justify-content: center;
+        cursor: pointer;
     }
-    /* 照片完整显示，不裁剪、不变形 */
     .model-img {
         width: 100%;
         height: 100%;
         object-fit: contain;
         display: block;
     }
-    /* 右侧信息 */
+
+    /* 信息区域：自适应字号 */
     .model-info {
         flex: 1;
-        padding: 0 24px;
+        min-width: 200px;
     }
     .model-name {
-        font-size: 36px;
+        font-size: clamp(24px, 6vw, 36px);
         font-weight: bold;
-        margin-bottom: 16px;
         color: #111;
+        margin-bottom: 12px;
     }
     .info-item {
-        font-size: 24px;
-        margin-bottom: 8px;
+        font-size: clamp(16px, 4vw, 24px);
         color: #222;
+        margin-bottom: 6px;
     }
     .info-item span {
         font-weight: normal;
+    }
+
+    /* 小屏优化：卡片垂直堆叠 */
+    @media (max-width: 500px) {
+        .model-card {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .img-container {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 2/3;
+        }
     }
 </style>
 </head>
 <body>
 
 <div class="header">
-    <img src="./LOGO.png" class="logo" alt="LOGO">
+    <img src="./LOGO.png" class="logo" alt="TIANMEN GIRLS">
     <h1 class="title">兼职模特信息档案册</h1>
 </div>
 
 <div class="card-container">
-
-<!-- 模特1：小小粥 -->
-<div class="model-card">
-    <div class="img-container" onclick="window.location.href='model1.html'">
-        <img src="images/模特1.jpg" class="model-img" alt="小小粥">
+    <!-- 模特1：小小粥 -->
+    <div class="model-card">
+        <div class="img-container" onclick="window.location.href='model1.html'">
+            <img src="images/模特1.jpg" class="model-img" alt="小小粥">
+        </div>
+        <div class="model-info">
+            <div class="model-name">小小粥</div>
+            <div class="info-item"><span>身高：</span>166cm</div>
+            <div class="info-item"><span>体重：</span>100斤</div>
+            <div class="info-item"><span>三围：</span>77/63/80</div>
+            <div class="info-item"><span>肩宽：</span>34cm</div>
+        </div>
     </div>
-    <div class="model-info">
-        <div class="model-name">小小粥</div>
-        <div class="info-item"><span>身高：</span>166cm</div>
-        <div class="info-item"><span>体重：</span>100斤</div>
-        <div class="info-item"><span>三围：</span>77/63/80</div>
-        <div class="info-item"><span>肩宽：</span>34cm</div>
+
+    <!-- 模特2：周佳盟 -->
+    <div class="model-card">
+        <div class="img-container" onclick="window.location.href='model2.html'">
+            <img src="images/模特2.jpg" class="model-img" alt="周佳盟">
+        </div>
+        <div class="model-info">
+            <div class="model-name">周佳盟</div>
+            <div class="info-item"><span>身高：</span>158cm</div>
+            <div class="info-item"><span>体重：</span>87斤</div>
+            <div class="info-item"><span>三围：</span>80/65/76</div>
+            <div class="info-item"><span>肩宽：</span>35cm</div>
+        </div>
+    </div>
+
+    <!-- 模特3：周鑫 -->
+    <div class="model-card">
+        <div class="img-container" onclick="window.location.href='model3.html'">
+            <img src="images/模特3.jpg" class="model-img" alt="周鑫">
+        </div>
+        <div class="model-info">
+            <div class="model-name">周鑫</div>
+            <div class="info-item"><span>身高：</span>158cm</div>
+            <div class="info-item"><span>体重：</span>88斤</div>
+            <div class="info-item"><span>三围：</span>70/60/80</div>
+            <div class="info-item"><span>肩宽：</span>34cm</div>
+        </div>
+    </div>
+
+    <!-- 模特4：小施 -->
+    <div class="model-card">
+        <div class="img-container" onclick="window.location.href='model4.html'">
+            <img src="images/模特4.jpg" class="model-img" alt="小施">
+        </div>
+        <div class="model-info">
+            <div class="model-name">小施</div>
+            <div class="info-item"><span>身高：</span>163cm</div>
+            <div class="info-item"><span>体重：</span>90斤</div>
+            <div class="info-item"><span>三围：</span>70/60/80</div>
+            <div class="info-item"><span>肩宽：</span>34cm</div>
+        </div>
     </div>
 </div>
 
-<!-- 模特2：周佳盟 -->
-<div class="model-card">
-    <div class="img-container" onclick="window.location.href='model2.html'">
-        <img src="images/模特2.jpg" class="model-img" alt="周佳盟">
-    </div>
-    <div class="model-info">
-        <div class="model-name">周佳盟</div>
-        <div class="info-item"><span>身高：</span>158cm</div>
-        <div class="info-item"><span>体重：</span>87斤</div>
-        <div class="info-item"><span>三围：</span>80/65/76</div>
-        <div class="info-item"><span>肩宽：</span>35cm</div>
-    </div>
-</div>
-
-<!-- 模特3：周鑫 -->
-<div class="model-card">
-    <div class="img-container" onclick="window.location.href='model3.html'">
-        <img src="images/模特3.jpg" class="model-img" alt="周鑫">
-    </div>
-    <div class="model-info">
-        <div class="model-name">周鑫</div>
-        <div class="info-item"><span>身高：</span>158cm</div>
-        <div class="info-item"><span>体重：</span>88斤</div>
-        <div class="info-item"><span>三围：</span>70/60/80</div>
-        <div class="info-item"><span>肩宽：</span>34cm</div>
-    </div>
-</div>
-
-<!-- 模特4：小施 -->
-<div class="model-card">
-    <div class="img-container" onclick="window.location.href='model4.html'">
-        <img src="images/模特4.jpg" class="model-img" alt="小施">
-    </div>
-    <div class="model-info">
-        <div class="model-name">小施</div>
-        <div class="info-item"><span>身高：</span>163cm</div>
-        <div class="info-item"><span>体重：</span>90斤</div>
-        <div class="info-item"><span>三围：</span>70/60/80</div>
-        <div class="info-item"><span>肩宽：</span>34cm</div>
-    </div>
-</div>
-
-</div>
 </body>
 </html>
